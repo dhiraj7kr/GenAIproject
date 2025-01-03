@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Form Submission</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: white;
+            padding: 10px;
+            color: skyblue;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        nav a {
+            color: deepskyblue;
+            font-size: 18px;
+            text-decoration: none;
+            margin-left: 20px;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #f0f8ff;
+            color: #007bff;
+        }
+
+        /* Main content container */
+        .main-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            padding: 0 20px;
+        }
+
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            color: deepskyblue;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: deepskyblue;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid black;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #555;
+            background-color: white;
+        }
+
+        .form-group input:focus {
+            border-color: deepskyblue;
+            outline: none;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 12px;
+            background-color: deepskyblue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .form-group button:hover {
+            background-color: #1e90ff;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #343a40;
+            color: white;
+        }
+
+        .footer a {
+            color: #28a745;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav>
+    <a href="base.html">Home</a>
+</nav>
+
+<!-- Main Form Container -->
+<div class="main-container">
+    <div class="form-container">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <span class="error" id="nameError"></span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error" id="emailError"></span>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}">
+                <span class="error" id="phoneError"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <p>&copy; 2025 Your Company. All rights reserved. | <a href="base.html">Go to Home</a></p>
+</div>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent the default form submission
+
+        // Clear previous error messages
+        document.getElementById('nameError').textContent = '';
+        document.getElementById('emailError').textContent = '';
+        document.getElementById('phoneError').textContent = '';
+
+        // Get form values
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+
+        let valid = true;
+
+        // Validate name
+        if (name === '' || name.length < 3) {
+            document.getElementById('nameError').textContent = 'Name must be at least 3 characters.';
+            valid = false;
+        }
+
+        // Validate email
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailPattern.test(email)) {
+            document.getElementById('emailError').textContent = 'Please enter a valid email address.';
+            valid = false;
+        }
+
+        // Validate phone number (10 digits)
+        if (!/^\d{10}$/.test(phone)) {
+            document.getElementById('phoneError').textContent = 'Phone number must be 10 digits.';
+            valid = false;
+        }
+
+        // If valid, show SweetAlert and redirect
+        if (valid) {
+            Swal.fire({
+                title: 'Submitted!',
+                text: 'Your form has been submitted successfully!',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then(() => {
+                // Redirect to base.html
+                window.location.href = 'base.html';
+            });
+        }
+    });
+</script>
+
+</body>
+</html>

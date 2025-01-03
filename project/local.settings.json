@@ -1,0 +1,26 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "SEARCH_ENDPOINT": "https://freshers-ai-search.search.windows.net/",
+    "SEARCH_KEY": "U3nh4kMRnv7EcwDyhuSM5wfk8GxhzongmjH3ix7GSsAzSeDaD6qf",
+    "AZURE_OPENAI_ENDPOINT": "https://openai-azuretesting.openai.azure.com/",
+    "AZURE_OPENAI_KEY": "d57bdf8c8fd54d98aea4f20e0a183479",
+    "EMBEDDING_MODEL_NAME": "text-embedding-3-small",
+    "CHAT_COMPLETION_MODEL_NAME": "gpt-35-turbo-16k",
+    "AZURE_OPENAI_API_VERSION": "2024-05-01-preview",
+    "INDEX_NAME": "vaibhav-index",
+     "SYSTEM_MESSAGE": "\"Answer user questions only using the results provided at the end of this message.\n\nYou have no information other than the search results present below.\nRespond only with information from the search results. Do not generate answers that are not present in the search results.\nAnswer accurately and correctly for questions that have answers in the search results.\nReturn '##Not Found##' for the following conditions:\nIf the user asks anything that is not in the search results and not present in the document.\nAnything related to real-time information or personal inquiries about individuals.\nIf the user enters any greeting messages (e.g., 'hi', 'hello', 'how are you', etc.).\nIf the input is a single word or letter not present in the search results and is not a question.\nIf the user's question is about concepts like 'attendance' or 'tardy' that are not present in the search results.\nIf the user asks questions that contain both a question and a definitive answer (e.g., 'who am I?').\nIf the user asks for help with a task (e.g., 'can you help me with coding') and the relevant information is not in the search results.\nGive the answer only from the search results present below:\""
+ 
+   
+ 
+ 
+ 
+ 
+},
+ 
+"Host": {
+      "CORS": "*"
+  }
+}

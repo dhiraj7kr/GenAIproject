@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group-4</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="base.css">
+    <link rel="icon" href="./images/Acuvate logo.jfif" type="image/icon type">
+    <script defer src="base.js"></script>
+</head>
+<body>
+    <header class="text-center py-5">
+        <h1 class="display-4">Infinity-1</h1>
+        <p class="lead">Your gateway to knowledge</p>
+        <nav class="position-absolute" style="top: 20px; right: 20px;">
+            <a href="./about.html" class="mr-3">About</a>
+            <a href="./contact.html">Contact</a>
+        </nav>
+    </header>
+    
+    <section id="search-section" class="d-flex justify-content-center mb-5">
+        <div class="input-group search-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text search-icon"><i class="fas fa-search"></i></span>
+            </div>
+            <input type="text" id="query" class="form-control search-bar" placeholder="Enter your search query" aria-label="Search query">
+            <select id="department" class="form-control category-dropdown">
+                <option value="HR">HR</option>
+                <option value="IT">IT</option>
+                <option value="ALL">ALL</option>
+            </select>
+            <div class="input-group-append">
+                <button id="search-button" class="btn btn-primary" type="button">Search</button>
+            </div>
+        </div>
+    </section>
+    
+    <section id="content-section" class="container mb-4" style="display: none;">
+        <h2>Generated Description</h2>
+        <p id="content"></p>  
+    </section>
+
+    <div id="loading-spinner" class="spinner" style="display: none;">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    
+    <section id="results-section" class="container mb-4" style="display: none;">
+        <h2>Search Results</h2>
+        <div id="fileList" class="file-list">
+            <h3></h3>
+        </div>
+    </section>
+    
+    <footer class="text-center py-4">
+        <p>&copy; 2024 Infinity-1 | All Rights Reserved</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
